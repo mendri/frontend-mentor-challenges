@@ -3,34 +3,35 @@ function Home() {
   return (
     <div className="not-mobile:bg-charcoal-grey not-mobile:h-full not-mobile:flex not-mobile:justify-center not-mobile:items-center">
       <div className="flex flex-col items-center not-mobile:h-5/6 not-mobile:w-7/12 not-mobile:flex-row-reverse not-mobile:bg-white not-mobile:rounded-3xl not-mobile:shadow-2xl not-mobile:p-1">
-        <header className="w-full not-mobile:w-1/2 not-mobile:h-full not-mobile:pt-4 not-mobile:pb-4 not-mobile:pr-0">
+        <header className="w-full not-mobile:w-1/2 not-mobile:h-full not-mobile:pt-4 not-mobile:pb-4">
           <img className="w-full not-mobile:hidden" src="src/assets/images/illustration-sign-up-mobile.svg" />
           <img className="w-full hidden not-mobile:block not-mobile:h-full" src="src/assets/images/illustration-sign-up-desktop.svg" />
         </header>
         <section className="flex flex-col items-center not-mobile:w-1/2 not-mobile:h-full not-mobile:justify-center">
-          <div className="w-11/12">
-            <h2 className="font-roboto-bold text-stay-updated mt-8 self-start not-mobile:text-5xl">Stay updated!</h2>
-            <p className="font-roboto-regular mt-6">Join 60,000+ product managers receiving monthly updates on:</p>
+          <div className="w-11/12 not-mobile:w-10/12 not-mobile:ml-4">
+            <h2 className="font-roboto-bold text-stay-updated mt-8 self-start not-mobile:m-0 not-mobile:text-stay-updated-desktop">Stay updated!</h2>
+            <p className="font-roboto-regular mt-6 not-mobile:m-0 not-mobile:text-sm
+            ">Join 60,000+ product managers receiving monthly updates on:</p>
             <div className="w-full mt-6">
               <div className="flex items-start">
                 <img className="w-6" src="src/assets/images/icon-list.svg" />
-                <p className="ml-4 w-9/12 font-roboto-regular">Product discovery and building what matters</p>
+                <p className="ml-4 w-9/12 font-roboto-regular not-mobile:text-sm not-mobile:w-full">Product discovery and building what matters</p>
               </div>
               <div className="flex items-start mt-2">
                 <img className="w-6" src="src/assets/images/icon-list.svg" />
-                <p className="ml-4 w-9/12 font-roboto-regular">Measuring to ensure updates are a success</p>
+                <p className="ml-4 w-9/12 font-roboto-regular not-mobile:text-sm not-mobile:w-full">Measuring to ensure updates are a success</p>
               </div>
               <div className="flex items-start mt-2">
                 <img className="w-6" src="src/assets/images/icon-list.svg" />
-                <p className="ml-4 w-9/12 font-roboto-regular">And much more!</p>
+                <p className="ml-4 w-9/12 font-roboto-regular not-mobile:text-sm not-mobile:w-full">And much more!</p>
               </div>
             </div>
+            <form className="flex flex-col items-center mt-10 not-mobile:mt-8">
+              <p className="font-roboto-bold text-sm opacity-80 self-start not-mobile:text-xs">Email address</p>
+              <input className="border border-black border-opacity-30 p-4 rounded-lg w-full mt-2 not-mobile:text-sm" placeholder="email@company.com" />
+              <button className="p-4 bg-dark-slate-grey text-white font-roboto-bold rounded-lg w-full mt-6 mb-4 not-mobile:mb-0 not-mobile:text-sm">Subscribe to monthly newsletter</button>
+            </form>
           </div>
-          <form className="flex flex-col items-center mt-10 not-mobile:mt-6 w-11/12">
-            <p className="font-roboto-bold text-sm opacity-80 self-start">Email address</p>
-            <input className="border border-black border-opacity-30 p-4 rounded-lg w-full mt-2" placeholder="email@company.com" />
-            <button className="p-4 bg-dark-slate-grey text-white font-roboto-bold rounded-lg w-full mt-6 mb-4 not-mobile:mb-0">Subscribe to monthly newsletter</button>
-          </form>
         </section>
       </div>
     </div>

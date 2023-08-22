@@ -20,6 +20,7 @@ export default {
       },
       fontSize: {
         "stay-updated": ["2.5rem", "2.5rem"],
+        "stay-updated-desktop": ["3.05rem", "5rem"]
       }
     },
   },
