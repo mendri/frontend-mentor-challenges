@@ -1,4 +1,19 @@
+import { useState } from "react"
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+
 function Home() {
+
+  const [email, setEmail] = useState("")
+  const [error, setError] = useState("")
+  const [isValid, setIsValid] = useState(true)
+
+  function handleClick() {
+    if (!EMAIL_REGEX.test(email)) {
+      setIsValid(false)
+      setError("Valid email required")
+    }
+  }
 
   return (
     <div className="not-mobile:bg-charcoal-grey not-mobile:h-full not-mobile:flex not-mobile:justify-center not-mobile:items-center">
@@ -27,9 +42,26 @@ function Home() {
               </div>
             </div>
             <form className="flex flex-col items-center mt-10 not-mobile:mt-8">
-              <p className="font-roboto-bold text-sm opacity-80 self-start not-mobile:text-xs">Email address</p>
-              <input className="border border-black border-opacity-30 p-4 rounded-lg w-full mt-2 not-mobile:text-sm" placeholder="email@company.com" />
-              <button className="p-4 bg-dark-slate-grey text-white font-roboto-bold rounded-lg w-full mt-6 mb-4 not-mobile:mb-0 not-mobile:text-sm">Subscribe to monthly newsletter</button>
+              <div className="w-full flex justify-start">
+                <p className="font-roboto-bold text-sm opacity-80 not-mobile:text-xs">Email address</p>
+                {
+                  isValid
+                  ? null
+                  : (
+                    <p>{error}</p>
+                  )
+                }
+              </div>
+              {
+                isValid
+                ? (
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} className="border border-black border-opacity-30 p-4 rounded-lg w-full mt-2 not-mobile:text-sm" placeholder="email@company.com" />
+                )
+                : (
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} className="border-2 bg-red-200 border-red-500 border-opacity-30 p-4 rounded-lg w-full mt-2 not-mobile:text-sm" placeholder="email@company.com" />  
+                )
+              }
+              <button type="button" onClick={handleClick} className="p-4 bg-dark-slate-grey text-white font-roboto-bold rounded-lg w-full mt-6 mb-4 not-mobile:mb-0 not-mobile:text-sm hover:bg-gradient-to-r from-pink-600 to-tomato">Subscribe to monthly newsletter</button>
             </form>
           </div>
         </section>

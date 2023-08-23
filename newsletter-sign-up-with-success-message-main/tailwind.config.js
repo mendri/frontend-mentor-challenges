@@ -10,6 +10,7 @@ export default {
         "dark-slate-grey": "hsl(234, 29%, 20%)",
         "charcoal-grey": "hsl(235, 18%, 26%)",
         "grey": "hsl(231, 7%, 60%)",
+        "tomato": "hsl(4, 100%, 67%)"
       },
       screens: {
         "not-mobile": "500px",
@@ -20,7 +21,7 @@ export default {
       },
       fontSize: {
         "stay-updated": ["2.5rem", "2.5rem"],
-        "stay-updated-desktop": ["3.05rem", "5rem"]
+        "stay-updated-desktop": ["3.05rem", "5rem"],
       }
     },
   },
