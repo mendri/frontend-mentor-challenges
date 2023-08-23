@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 
 function Home() {
 
+  const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isValid, setIsValid] = useState(true)
@@ -12,6 +14,8 @@ function Home() {
     if (!EMAIL_REGEX.test(email)) {
       setIsValid(false)
       setError("Valid email required")
+    } else {
+      navigate("/successful-subscribe")
     }
   }
 
@@ -42,13 +46,17 @@ function Home() {
               </div>
             </div>
             <form className="flex flex-col items-center mt-10 not-mobile:mt-8">
-              <div className="w-full flex justify-start">
-                <p className="font-roboto-bold text-sm opacity-80 not-mobile:text-xs">Email address</p>
+              <div className="w-full flex items-center">
+                <div className="w-1/2">
+                  <p className="font-roboto-bold text-sm opacity-80 not-mobile:text-xs">Email address</p>
+                </div>
                 {
                   isValid
                   ? null
                   : (
-                    <p>{error}</p>
+                    <div className="w-1/2 flex justify-end">
+                      <p className="font-roboto-bold text-sm opacity-80 not-mobile:text-xs text-red-600">{error}</p>
+                    </div>
                   )
                 }
               </div>
